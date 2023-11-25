@@ -199,7 +199,7 @@
 <a href="https://en.wikipedia.org/wiki/Elliptic_integral">theory</a> and 
 <a href="https://docs.scipy.org/doc/scipy/reference/special.html">scipy implementation</a>) as </p>
 <p>\[
-    T = 4 \sqrt{\frac{L}{2g}} F\left( \frac{\pi}{2}, \sin\left(\frac{\theta_0}{2}\right)\right)
+    T = 4 \sqrt{\frac{L}{g}} F\left( \frac{\pi}{2}, \sin^2\left(\frac{\theta_0}{2}\right)\right)
 \]
 where \(F\) is the <a href="https://en.wikipedia.org/wiki/Elliptic_integral#Incomplete_elliptic_integral_of_the_first_kind">incomplete elliptic integral of the first kind</a>.</p>
 <p>We are going to evaluate both expressions, the first using quadrature (numerical integration) and the second using special functions in scipy.</p>
@@ -277,7 +277,7 @@ where \(F\) is the <a href="https://en.wikipedia.org/wiki/Elliptic_integral#Inco
 <p>Compute required value --- you will need something <strong>like</strong> the following</p>
 </li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">L</span><span class="o">/</span><span class="n">g</span><span class="p">)</span> <span class="o">*</span> <span class="n">ellipkinc</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_0</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">L</span><span class="o">/</span><span class="n">g</span><span class="p">)</span> <span class="o">*</span> <span class="n">ellipkinc</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_0</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 
 <p>TODO: Generate the curve for the nonlinear period and include it in the above graph.</p>
