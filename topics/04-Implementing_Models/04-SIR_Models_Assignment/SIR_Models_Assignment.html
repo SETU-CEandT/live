@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Computational Environments and Toolchains</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../style/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../../style/codehilite/css/default.css" rel="stylesheet">
+    <link href="../../../style/misc/css/module.css" rel="stylesheet">
+    <link href="../../../style/misc/css/practical.css" rel="stylesheet">
+
+	<script>
+		var shiftWindow = function() { scrollBy(0, -50) };
+		window.addEventListener("hashchange", shiftWindow);
+		function load() { if (window.location.hash) shiftWindow(); }
+	</script>
+
+	<script type="text/javascript"
+		src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+  </head>
+
+<body>
+
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			
+			
+	    	<div class="collapse navbar-collapse">
+
+
+				<ul class="nav navbar-nav navbar-left">
+					<!-- Moodle -->
+					<li>
+						<div class="navbar-header">
+							<a class="navbar-brand" href="https://moodle.setu.ie/course/view.php?id=" target="_blank"><img height="18pt" src="../../../style/misc/img/moodle_logo_on_blue.gif" /></a>
+						</div>						
+					</li>
+					<li>
+						<div class="navbar-header">
+							<a class="navbar-brand" href="" target="_blank"><img height="15pt" src="style/misc/img/slack_logo.png" /></a>
+						</div>						
+					</li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">
+		
+					<!-- module home -->
+					<li>
+						<div class="navbar-header">
+							<a class="navbar-brand" href="../../../index.html"><span class="glyphicon glyphicon-home"></span></a>
+						</div>						
+					</li>
+					
+					<!-- topics -->
+	        		<li>
+						<div class="navbar-collapse collapse" id="b">
+							<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										<span class="glyphicon glyphicon-list-alt"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu">
+										<li class="dropdown-header">Topics</li>
+										
+										<li >
+											<a href="../../../topics/00-Module_Overview_and_Introduction/index.html">Module Overview and Introduction</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/03-Computational_Problems_involving_Probability/index.html">Computational Problems involving Probability</a>
+										</li>
+										
+										<li >
+											<a href="../../../topics/04-Implementing_Models/index.html">Implementing Models</a>
+										</li>
+										
+									</ul>
+								</li>
+							</ul>
+						</div>			
+					</li>
+
+					<!-- resources -->
+	        		<li>
+						<div class="navbar-collapse collapse" id="b">
+							<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										<span class="glyphicon glyphicon-th-list"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu">
+										<li class="dropdown-header">Resources</li>
+										
+										<li >
+											<a href="#01-Nonlinear_Pendulum">Nonlinear Pendulum</a>
+										</li>
+										
+										<li >
+											<a href="#02-Rocket_Launch">Rocket Launch</a>
+										</li>
+										
+										<li >
+											<a href="#03-SIR_Models">SIR Models</a>
+										</li>
+										
+										<li >
+											<a href="#04-SIR_Models_Assignment">SIR Models Assignment</a>
+										</li>
+										
+									</ul>
+								</li>
+							</ul>
+						</div>			
+					</li>
+
+	        	</ul>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- contents -->
+	<div class="container">
+
+		<!-- topic config
+		<div class="panel panel-info">
+			<div class="panel-heading">	
+				<h3 class="panel-title">SIR Models Assignment</h3>
+			</div>
+			<div class="panel-body" style="color:gray">
+				<span>SIR Models</span>
+				<ul>
+					
+				</ul>
+			</div>
+		</div> -->
+	
+	<h1>Compartmental Models in Epidemics</h1>
+<p>We covered a number of compartmental models in the <a href="../03-SIR_Models/04-03-SIR_Models-Slides-Presentation.pdf">slides</a> and their implementation in Python. In this assignment, you answer a number of related tasks.</p>
+<h2>Tasks</h2>
+<h3>Question 1</h3>
+<p>A novel infection spread in a population of 10,000 individuals, from the initial infection of a single individual. 
+The infection peaked at 23 days with 7,361 infected, and had burnt out within 300 days.</p>
+<p>Initially, the infection had a transmission rate of \(\beta=0.55\).</p>
+<p>Determine the SIR model parameter \(\gamma\), and hence plot the model curves (S,I,R) showing the infection progression. </p>
+<p>Hints:</p>
+<ul>
+<li><code>I.argmax()</code> gives index of max value and <code>I.max()</code> gives max value. </li>
+<li>When you know some of the model parameters, you can either exclude that parameter from the search or you could include a term like
+\[(\text{parameter} - \text{given_value})^2\]
+in the objective function.</li>
+</ul>
+<h3>Question 2</h3>
+<p>A novel infection spread in a population of 12,000 individuals, from the initial infection of a single individual, and had burnt out within 300 days, killing 2,718 people. </p>
+<p>Initially, the infection appeared to spread with \(R_0=3.75\), and the transmission rate appears to satisfy 
+\(0.1 \leq \beta \leq 0.2\).
+Antibody serology studies showed that 75.8% of the population are carrying anti-bodies that respond to the virus (i.e., are Recovered).</p>
+<p>Use optimisation to determine the model parameters \(\beta\), \(\gamma\), and \(\mu\) for this infection, and hence plot the model curves (S,I,R,D) showing the infection progression.</p>
+<p>Outline of solution:</p>
+<ul>
+<li>Implement function, <code>f(x)</code> where: <ul>
+<li><code>x</code> is a vector of the model parameter values (<code>beta</code>, <code>gamma</code>, <code>mu</code>).</li>
+<li>Integrate the ODE over 300 days, to get <code>S</code>, <code>I</code>, <code>R</code>, and <code>D</code>.</li>
+<li>Compute your objective function value (sum of squared differences between observed and desired values) </li>
+</ul>
+</li>
+<li>Minimise <code>f(x)</code> using <code>optimize.minimize</code>:<ul>
+<li>Set suitable initial values for the model parameters.</li>
+<li>Use the <code>bounds</code> argument to set required intervals for model parameters.</li>
+</ul>
+</li>
+</ul>
+<h3>Question 3</h3>
+<p>A novel infection spread in a population of 10,000 individuals, from the initial infection of a single individual, 
+and had burnt out within 200 days. </p>
+<p>Initially, the infection appeared to spread with \(R_0=1.30\).
+And the number dead due to the infection was 
+75 after 50 days,
+1,526 after 100 days,
+2,425 after 150 days,
+and 2,462 after 200 days.</p>
+<p>Determine the model parameters \(\beta\), \(\gamma\), and \(\mu\), hence plot the model curves showing the infection progression.</p>
+<h3>Question 4</h3>
+<p>The data file <a href="files/Q4.csv">Q4.csv</a> shows the infection curve for a disease that spread in a population of 3,000 individuals from one infected individual.</p>
+<p>Decide on the appropriate SIR model and fit to determine the model parameters. Hence determine the value for \(R_0\).</p>
+<h3>Question 5</h3>
+<p>The data file <a href="files/Q5.csv">Q5.csv</a> shows the susceptible, infected, and recovered curve for a disease that spread in a population of 500 individuals from one infected individual.</p>
+<p>Decide on the appropriate SIR model and fit to determine the model parameters. Hence determine the value for \(R_0\).</p>
+<h3>Question 6</h3>
+<p>This is a modelling question and has multiple valid answers.  I mentioned that I recently read <em>The End of Men</em> by Christina Sweeney-Baird which describes a new virus that only killed males. I want you to build a SIR model to represent the disease spread as described in the book.</p>
+<p>The book does not describe every detail of the disease spread so I have to make some guesses based on the text.</p>
+<ul>
+<li>Population is 50 million (Britten only).</li>
+<li>Population is 50% female / 50% male.</li>
+<li>Females when infected become carriers of the virus but are otherwise unaffected and recover in about two weeks, they do not develop immunity.</li>
+<li>Males when infected have a 90% mortality rate and typically die within a week.</li>
+<li>Males that survive the infection typically recover in a week and appear to have life time immunity.</li>
+<li>The disease spread is described as "very contagious" and "spreads like wildfire", so assuming R_0 is high, say about 20.0.</li>
+</ul>
+<p>Construct the model and resulting ODE, then determine suitable parameters for the model and plot the model curves showing the infection progression. What is the o number of infected and the number of deaths?</p>
+<h2>Grading</h2>
+<p>Grading is based on:</p>
+<ul>
+<li>Your attempt and interpretation of your solution.</li>
+<li>Structure of notebooks &mdash; use markdown and code cells effectively.</li>
+</ul>
+<h2>Deliverable</h2>
+<p>Upload a notebook with your solutions to </p>
+<div class="pager">
+<a class="btn btn-primary btn-lg" target="_blank" href="https://moodle.wit.ie/mod/assign/view.php?id=4386390" role="button">Submit using Moodle</a>
+</div>
+	</div>
+
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../../../style/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
